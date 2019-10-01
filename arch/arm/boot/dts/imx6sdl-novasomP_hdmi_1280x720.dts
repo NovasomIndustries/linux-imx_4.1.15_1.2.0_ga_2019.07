@@ -1,0 +1,35 @@
+/*
+ * Copyright 2013 Boundary Devices, Inc.
+ * Copyright 2012 Freescale Semiconductor, Inc.
+ * Copyright 2011 Linaro Ltd.
+ *
+ * The code contained herein is licensed under the GNU General Public
+ * License. You may obtain a copy of the GNU General Public License
+ * Version 2 or later at the following locations:
+ *
+ * http://www.opensource.org/licenses/gpl-license.html
+ * http://www.gnu.org/copyleft/gpl.html
+ */
+
+/dts-v1/;
+#include "imx6dl.dtsi"
+#include "imx6sdl-novasomP_hdmi_1280x720.dtsi"
+
+/ {
+	model = "Freescale i.MX6 Solo/DualLite NOVAsomP Board";
+	compatible = "fsl,imx6sdl-novasom", "fsl,imx6dl";
+};
+
+&cpu0 {
+        arm-supply = <&reg_arm>;
+        soc-supply = <&reg_soc>;
+};
+
+&gpc {
+        /* use ldo-enable, u-boot will check it and configure */
+        fsl,ldo-bypass = <0>;
+};
+
+&wdog2 {
+        status = "disabled";
+};
